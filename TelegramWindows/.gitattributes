@@ -1,0 +1,12 @@
+# Go 源码与文档统一 LF，避免 Windows 上 CRLF 造成的无意义 diff。
+* text=auto
+*.go text eol=lf
+*.md text eol=lf
+*.mod text eol=lf
+*.sum text eol=lf
+Makefile text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
