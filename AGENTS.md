@@ -104,7 +104,7 @@ make gen                            # schema → internal/tl 代码生成（改�
    - 禁用"全局大锁"保护共享状态；不用 `time.Sleep` 做重试，用 `time.Timer`+`context`。
 5. **日志**：`log/slog`，结构化字段；级别默认 `Info`；**手机号打码、验证码/密码/消息正文永不落日志**。
 6. **时间**：统一 `int64` Unix 秒（协议字段），内部需要毫秒时显式命名 `*Ms`；禁止裸 `time.Now().Unix()` 散落各处，走 `internal/platform/clock`（可注入，便于测试）。
-7. **依赖**：新增第三方依赖需在提交信息里说明理由；优先标准库。允许清单：`modernc.org/sqlite`、`golang.org/x/sys`、WebView2 绑定库（`jchv/go-webview2` 或自写 COM）。**不允许**引入 CGO 依赖。
+7. **依赖**：新增第三方依赖需在提交信息里说明理由；优先标准库。M0 骨架**零第三方依赖**（Win32 调用走标准库 `syscall`）。后续允许：`modernc.org/sqlite`（纯 Go SQLite）、WebView2 绑定库（`jchv/go-webview2` 或自写 COM）。**不允许**引入 CGO 依赖。
 8. **测试**：新包必须有 `_test.go`；协议代码覆盖率 ≥ 90%，其它 ≥ 70%；`go test -race ./...` 必须通过。
 
 ---

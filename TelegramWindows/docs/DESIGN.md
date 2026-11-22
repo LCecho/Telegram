@@ -300,7 +300,7 @@ create virtual table msg_fts using fts5(text, content='messages', content_rowid=
 
 ## 4. 安全与合规
 
-1. **api_id/api_hash 不入库**：从 `%APPDATA%\tgw\config.json`（用户自填）或环境变量读取，`.gitignore` 排除。
+1. **api_id/api_hash 不入库**：从 `<数据目录>/config.json`（用户自填）或环境变量读取，`.gitignore` 排除；数据目录优先级 `TGW_HOME` → 便携 `data/`（exe 同级，可写时）→ `%LOCALAPPDATA%\TGW`。
 2. **公钥 pin**：只接受指纹 `0xd09d1d85de64fd85` 的生产公钥（见 `API-ANALYSIS.md` §4）。
 3. **日志脱敏**：手机号打码（`+86 138****0000`）、验证码/密码永不落日志、消息正文只在 debug 级且默认关闭。
 4. **传输安全**：默认 `ProtocolTypeEE`；不做证书固定（MTProto 自身加密），但 MTProxy 输出须校验 secret。

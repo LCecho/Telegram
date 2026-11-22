@@ -1,0 +1,9 @@
+bin/
+*.exe
+*.test
+*.out
+config.json
+*.db
+*.db-wal
+*.db-shm
+*.log

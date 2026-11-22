@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TGW · TelegramWindows</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f5f6f8;
+    --panel: #ffffff;
+    --line: #e3e6ea;
+    --text: #1f2328;
+    --muted: #6b7280;
+    --accent: #2f6fed;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 14px/1.6 "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  main {
+    width: min(560px, 92vw);
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  h1 { margin: 0 0 4px; font-size: 18px; font-weight: 600; }
+  .sub { margin: 0 0 20px; color: var(--muted); font-size: 13px; }
+  dl { display: grid; grid-template-columns: 88px 1fr; gap: 8px 12px; margin: 0 0 20px; }
+  dt { color: var(--muted); font-size: 13px; }
+  dd { margin: 0; font-size: 13px; word-break: break-all; }
+  code { background: #f1f3f6; border-radius: 4px; padding: 1px 5px; font-size: 12px; }
+  .note { border-top: 1px solid var(--line); padding-top: 16px; color: var(--muted); font-size: 12px; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>TelegramWindows</h1>
+  <p class="sub"><span class="dot"></span>M0 骨架 · 前端资源占位页（M2 起由 WebView2 加载）</p>
+
+  <dl>
+    <dt>通信</dt><dd><code>JSON-RPC 2.0</code> over <code>postMessage</code>（M2 接入）</dd>
+    <dt>后端</dt><dd>Go · 纯原生（无 cgo）</dd>
+    <dt>当前阶段</dt><dd>M0 窗口骨架 → M1 MTProto 协议层</dd>
+  </dl>
+
+  <p class="note">此目录是 UI 的唯一来源。接入后前端通过 <code>app.version</code>、<code>app.health</code> 等方法与服务端握手。</p>
+</main>
+</body>
+</html>
